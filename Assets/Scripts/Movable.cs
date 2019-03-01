@@ -19,6 +19,7 @@ public class Movable : MonoBehaviour
     private void Start()
     {
         rb2d.velocity = transform.up * initialVelocity;
+        
     }
 
     private void Update()
@@ -30,8 +31,11 @@ public class Movable : MonoBehaviour
         //Debug.Log(rb2d.angularVelocity);
         //angularThrust *= rb2d.angularVelocity / 2;
         var torque = Input.GetAxis("Horizontal") * Time.deltaTime * angularThrust * -1f;
-        
-        rb2d.AddTorque(torque);
+
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            rb2d.angularVelocity = torque;
+        }
         // torque : [-0.16, 0.16]
 
     }
