@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[ RequireComponent( typeof(Rigidbody2D) ) ]
+public class Movable : MonoBehaviour
+{
+
+    public float thrust = 20f;
+    public float angularThrust = 10f;
+    public float initialVelocity = 20f;
+    private Rigidbody2D rb2d;
+
+    private void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        rb2d.velocity = transform.up * initialVelocity;
+    }
+
+    private void Update()
+    {
+
+        var forwardMovement = new Vector2(0, Input.GetAxis("Vertical") * Time.deltaTime * thrust);
+        rb2d.AddRelativeForce( forwardMovement );
+
+        //Debug.Log(rb2d.angularVelocity);
+        //angularThrust *= rb2d.angularVelocity / 2;
+        var torque = Input.GetAxis("Horizontal") * Time.deltaTime * angularThrust * -1f;
+        
+        rb2d.AddTorque(torque);
+        // torque : [-0.16, 0.16]
+
+    }
+}
