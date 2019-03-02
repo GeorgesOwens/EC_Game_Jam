@@ -10,6 +10,9 @@ public class Pendule : MonoBehaviour
     public float speed = 1;
     [Range(0,1)]
     public float amplitude = 0.33f;
+    public bool lockPlatformRotation;
+
+    public Transform platform;
 
     private Animator animController;
 
@@ -23,5 +26,10 @@ public class Pendule : MonoBehaviour
         animController.speed = speed;
 
         animController.SetFloat("SwingAmplitude", amplitude);
+
+        if ( lockPlatformRotation )
+        {
+            platform.transform.rotation = Quaternion.identity;
+        }
     }
 }

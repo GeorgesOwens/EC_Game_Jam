@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,11 @@ public class Movable : MonoBehaviour
     private void Update()
     {
 
+        if ( Input.GetKeyDown("backspace") )
+        {
+            Respawn();
+        }
+
         var forwardMovement = new Vector2(0, Input.GetAxis("Vertical") * Time.deltaTime * thrust);
         rb2d.AddRelativeForce( forwardMovement );
 
@@ -38,5 +44,13 @@ public class Movable : MonoBehaviour
         }
         // torque : [-0.16, 0.16]
 
+    }
+
+    private void Respawn()
+    {
+        transform.rotation = Quaternion.identity;
+        rb2d.velocity = Vector2.zero;
+
+        CheckpointManager.MoveToActiveCheckpoint( this.transform );
     }
 }
