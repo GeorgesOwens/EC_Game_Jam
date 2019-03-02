@@ -195,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537118995277965129}
   - component: {fileID: 53696243369677761}
+  - component: {fileID: 2985156244117539961}
   m_Layer: 0
   m_Name: Pendule
   m_TagString: Untagged
@@ -230,7 +231,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c543770a913d1f840b9a36c5367a7747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingAmplitude: 60
-  swingSpeed: 10
-  platformAlwaysHorizontal: 0
-  platform: {fileID: 1661387078697593605}
+  speed: 0.5
+  amplitude: 0.2
+--- !u!95 &2985156244117539961
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487066684951629032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50ddf0492e2637f458dbe09198f1c3d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
