@@ -21,10 +21,15 @@ public class CheckpointManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        ActiveCheckpoint = StartingCheckpoint = _StartingCheckpoint;
     }
     #endregion
 
+    public Checkpoint _StartingCheckpoint;
+
     public static Checkpoint ActiveCheckpoint { get; set; }
+    public static Checkpoint StartingCheckpoint { get; set; }
 
     public static void MoveToActiveCheckpoint( Transform target )
     {

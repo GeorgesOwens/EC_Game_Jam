@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-
+    [Range(0, 30)]
+    [HideInInspector]
+    public int order = -1;
     public Transform respawnLocation;
     public bool Passed { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        if ( order == -1 )
+            order = (int) Mathf.Round(transform.position.y);
+
         foreach ( Transform child in transform)
         {
             child.GetComponent<SpriteRenderer>().enabled = false;
@@ -21,6 +26,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         if (Passed) return;
+
+        if (CheckpointManager.ActiveCheckpoint.order > order) return;
 
         CheckpointManager.ActiveCheckpoint = this;
 
