@@ -50,6 +50,7 @@ public class Movable : MonoBehaviour
     {
         transform.rotation = Quaternion.identity;
         rb2d.velocity = Vector2.zero;
+        rb2d.angularVelocity = 0f;
 
         CheckpointManager.MoveToActiveCheckpoint( this.transform );
     }

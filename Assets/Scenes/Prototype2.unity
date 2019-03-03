@@ -2413,5 +2413,10 @@ PrefabInstance:
       propertyPath: insideColliderOffset
       value: 0.358
       objectReference: {fileID: 0}
+    - target: {fileID: 7721224354122777593, guid: ad3dab8ec07ebc24fb07e2c3dbcb4aa7,
+        type: 3}
+      propertyPath: bounceDistance
+      value: 1.95
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad3dab8ec07ebc24fb07e2c3dbcb4aa7, type: 3}
