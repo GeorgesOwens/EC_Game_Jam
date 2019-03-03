@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Aiguille : MonoBehaviour
 {
-    [Tooltip("Speed of rotation in degrees per second.")]
-    [Range(0, 360)]
-    public float speed = 30f;
+    [Header("Animation Settings")]
+    [Range(0, 5)]
+    public float speed = 1f;
     public bool clockwise = false;
+    public bool ticking = false;
 
-    private void FixedUpdate()
+    private Animator animator;
+
+    private void Awake()
     {
-        transform.Rotate( Vector3.forward, speed * Time.fixedDeltaTime * (clockwise ? -1 : 1));
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("Direction", (clockwise ? -1 : 1));
+        animator.speed = speed;
+        animator.SetFloat("TickOrNot", (ticking ? 1 : 0));
     }
 }
