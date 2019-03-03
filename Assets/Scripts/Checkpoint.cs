@@ -18,7 +18,8 @@ public class Checkpoint : MonoBehaviour
 
         foreach ( Transform child in transform)
         {
-            child.GetComponent<SpriteRenderer>().enabled = false;
+            if ( child.GetComponent<SpriteRenderer>() )
+                child.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
