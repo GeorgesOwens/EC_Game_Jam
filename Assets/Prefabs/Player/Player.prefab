@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1035fe59b3f3bcc4e91f14bbeaf02b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2000
-  angularThrust: 50000
+  thrust: 0
+  angularThrust: 800
   initialVelocity: 0
 --- !u!61 &6396577772227851574
 BoxCollider2D:

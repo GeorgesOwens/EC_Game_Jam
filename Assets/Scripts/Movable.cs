@@ -36,19 +36,17 @@ public class Movable : MonoBehaviour
             SceneSwitcher.SwitchToMainMenu();
         }
 
-        var forwardMovement = new Vector2(0, Input.GetAxis("Vertical") * Time.deltaTime * thrust);
-        rb2d.AddRelativeForce( forwardMovement );
+    }
 
-        //Debug.Log(rb2d.angularVelocity);
-        //angularThrust *= rb2d.angularVelocity / 2;
-        var torque = Input.GetAxis("Horizontal") * Time.deltaTime * angularThrust * -1f;
+    private void FixedUpdate()
+    {
+        var torque = Input.GetAxis("Horizontal") * angularThrust * -1f;
 
         if (Input.GetAxis("Horizontal") != 0)
         {
             rb2d.angularVelocity = torque;
         }
-        // torque : [-0.16, 0.16]
-
+        
     }
 
     private void Respawn()
