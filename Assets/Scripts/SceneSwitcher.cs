@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
+    public void SwitchToLevel0()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void SwitchToLevel1()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
-
-    public void SwitchToPlayground()
+    public void SwitchToLevel2()
     {
         SceneManager.LoadScene(3);
     }
