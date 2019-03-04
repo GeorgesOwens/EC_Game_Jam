@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FinishLine : Checkpoint
 {
+    public Timer timer;
+    public Transform message;
+
     void Awake()
     {
         passedColor = baseColor = Color.white;
@@ -13,6 +16,7 @@ public class FinishLine : Checkpoint
     protected override void OnTriggerEnter2DChild(Collider2D other)
     {
         base.OnTriggerEnter2DChild(other);
-        print("Finished!");
+        timer.StopTimer();
+        message.gameObject.SetActive(true);
     }
 }
