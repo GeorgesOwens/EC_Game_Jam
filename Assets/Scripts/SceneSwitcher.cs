@@ -7,12 +7,12 @@ public class SceneSwitcher : MonoBehaviour
 {
     public void SwitchToLevel1()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     public void SwitchToPlayground()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     public static void SwitchToMainMenu()
