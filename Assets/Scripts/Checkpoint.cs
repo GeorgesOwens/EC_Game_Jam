@@ -10,6 +10,12 @@ public class Checkpoint : MonoBehaviour
     public Transform respawnLocation;
     public bool Passed { get; private set; }
 
+    [Space]
+    [Header("Flag Settings")]
+    public SpriteRenderer flag;
+    public Color baseColor;
+    public Color passedColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +27,8 @@ public class Checkpoint : MonoBehaviour
             if ( child.GetComponent<SpriteRenderer>() )
                 child.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        flag.color = baseColor;
     }
 
     private void OnTriggerEnter2DChild(Collider2D other)
@@ -33,6 +41,8 @@ public class Checkpoint : MonoBehaviour
         CheckpointManager.ActiveCheckpoint = this;
 
         Passed = true;
+        flag.color = passedColor;
+
     }
 
 }
