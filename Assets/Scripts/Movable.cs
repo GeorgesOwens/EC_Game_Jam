@@ -6,23 +6,16 @@ using UnityEngine;
 [ RequireComponent( typeof(Rigidbody2D) ) ]
 public class Movable : MonoBehaviour
 {
-
-    public float thrust = 20f;
-    public float angularThrust = 10f;
-    public float initialVelocity = 20f;
+    
+    public float angularThrust = 800f;
+    public float initialVelocity = 0f;
     private Rigidbody2D rb2d;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
-
-    private void Start()
-    {
-        rb2d.velocity = transform.up * initialVelocity;
-        
-    }
-
+    
     private void Update()
     {
 
