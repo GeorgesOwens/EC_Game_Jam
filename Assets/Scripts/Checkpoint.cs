@@ -31,7 +31,7 @@ public class Checkpoint : MonoBehaviour
         flag.color = baseColor;
     }
 
-    private void OnTriggerEnter2DChild(Collider2D other)
+    protected virtual void OnTriggerEnter2DChild(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
         if (Passed) return;
