@@ -12,21 +12,27 @@ public class PlatTelescopic : MonoBehaviour
     public float speed;
     [Space]
     [Header("Object References")]
-    public Transform minWidth;
-    public Transform maxWidth;
-    public Transform platform;
+    public SpriteRenderer minWidth;
+    public SpriteRenderer maxWidth;
+    public SpriteRenderer platform;
 
-    //public AnimationCurve plot = new AnimationCurve();
+    private BoxCollider2D platformCollider;
+
+    private void Awake()
+    {
+        platformCollider = platform.GetComponent<BoxCollider2D>();
+    }
 
     private void SetPlatformWidth( float width)
     {
-        platform.localScale = new Vector3(width, platform.localScale.y, platform.localScale.z);
-        
+        var size = new Vector2(width, platform.size.y);
+        platform.size = size;
+        platformCollider.size = size;
     }
 
     private void Start()
     {
-        SetPlatformWidth(minWidth.localScale.x);
+        SetPlatformWidth(minWidth.size.x);
         minWidth.GetComponent<SpriteRenderer>().enabled = false;
         maxWidth.GetComponent<SpriteRenderer>().enabled = false;
 
@@ -35,13 +41,12 @@ public class PlatTelescopic : MonoBehaviour
     
     private IEnumerator Animate( bool expand)
     {
-        var targetWidth = expand ? maxWidth.localScale.x : minWidth.localScale.x;
+        var targetWidth = expand ? maxWidth.size.x : minWidth.size.x;
         float increment = speed * 0.001f;
 
         for ( float i = 0; i <= 1; i += increment)
         {
-            SetPlatformWidth(Mathf.Lerp(platform.localScale.x, targetWidth, i));
-            //plot.AddKey(Time.realtimeSinceStartup, i);
+            SetPlatformWidth(Mathf.Lerp(platform.size.x, targetWidth, i));
             yield return null;
         }
         
